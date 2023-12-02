@@ -24,4 +24,11 @@ public class TestBook {
         Book javaBook = applicationContext.getBean("java-textbook", Book.class);
         System.out.println(javaBook);
     }
+
+    @Test
+    public void dependencyInjectionThroughConstructor() {
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("bean-di.xml");
+        Book cppBook = applicationContext.getBean("cpp-textbook", Book.class);
+        System.out.println(cppBook);
+    }
 }

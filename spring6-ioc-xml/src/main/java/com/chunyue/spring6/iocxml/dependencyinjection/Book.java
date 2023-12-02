@@ -4,11 +4,14 @@ public class Book {
     private String title;
     private String author;
 
-    public Book(){}
+    public Book(){
+        System.out.println("Non-argument constructor is executed");
+    }
 
     public Book(String title, String author) {
         this.title = title;
         this.author = author;
+        System.out.println("Argumented constructor is executed");
     }
 
     // To use setter for dependency injection, we need setters
@@ -17,6 +20,7 @@ public class Book {
     }
 
     public void setTitle(String title) {
+
         this.title = title;
     }
 
