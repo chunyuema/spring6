@@ -26,7 +26,9 @@ public class TestBook {
     public void dependencyInjectionThroughSetter() {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("bean-di.xml");
         Book javaBook = applicationContext.getBean("java-textbook", Book.class);
+        Book javaBook2 = applicationContext.getBean("java-textbook2", Book.class);
         System.out.println(javaBook);
+        System.out.println(javaBook2);
     }
 
     @Test

@@ -6,15 +6,33 @@
    http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
+    <bean id="author" class="com.chunyue.spring6.iocxml.dependencyinjection.Author">
+        <property name="name" value="chunyue"></property>
+        <property name="age" value="25"></property>
+    </bean>
+
     <!-- Using setters for dependency injection -->
     <bean id="java-textbook" class="com.chunyue.spring6.iocxml.dependencyinjection.Book">
         <property name="title" value="java"></property>
+        <!-- Referencing external bean -->
         <property name="author" ref="author"></property>
+    </bean>
+
+    <bean id="java-textbook2" class="com.chunyue.spring6.iocxml.dependencyinjection.Book">
+        <property name="title" value="java"></property>
+        <!-- Referencing internal bean -->
+        <property name="author">
+            <bean id="author2" class="com.chunyue.spring6.iocxml.dependencyinjection.Author">
+                <property name="name" value="bobby"></property>
+                <property name="age" value="25"></property>
+            </bean>
+        </property>
     </bean>
 
     <!-- Using constructor (with arguments) for dependency injection -->
     <bean id="cpp-textbook" class="com.chunyue.spring6.iocxml.dependencyinjection.Book">
         <constructor-arg name="title" value="cpp"></constructor-arg>
+        <!-- Referencing external bean -->
         <constructor-arg name="author" ref="author"></constructor-arg>
     </bean>
 
@@ -30,9 +48,5 @@
         <property name="author" ref="author"></property>
     </bean>
 
-    <bean id="author" class="com.chunyue.spring6.iocxml.dependencyinjection.Author">
-        <property name="name" value="chunyue"></property>
-        <property name="age" value="25"></property>
-    </bean>
 
 </beans>
