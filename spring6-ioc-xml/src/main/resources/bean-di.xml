@@ -18,4 +18,16 @@
         <constructor-arg name="author" value="cpp-author"></constructor-arg>
     </bean>
 
+    <!-- Using null value -->
+    <bean id="no-author" class="com.chunyue.spring6.iocxml.dependencyinjection.Book">
+        <property name="title" value="some-random-book"/>
+        <property name="author"><null/></property>
+    </bean>
+
+    <!-- Using xml entity -->
+    <bean id="werid-name-book" class="com.chunyue.spring6.iocxml.dependencyinjection.Book">
+        <property name="title" value="&lt;&gt;"/>
+        <property name="author" value="chunyue"></property>
+    </bean>
+
 </beans>

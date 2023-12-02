@@ -31,4 +31,13 @@ public class TestBook {
         Book cppBook = applicationContext.getBean("cpp-textbook", Book.class);
         System.out.println(cppBook);
     }
+
+    @Test
+    public void passingNonStandardValues() {
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("bean-di.xml");
+        Book b1 = applicationContext.getBean("no-author", Book.class);
+        System.out.println(b1);
+        Book b2 = applicationContext.getBean("werid-name-book", Book.class);
+        System.out.println(b2);
+    }
 }
