@@ -2,13 +2,13 @@ package com.chunyue.spring6.iocxml.dependencyinjection;
 
 public class Book {
     private String title;
-    private String author;
+    private Author author;
 
     public Book(){
         System.out.println("Non-argument constructor is executed");
     }
 
-    public Book(String title, String author) {
+    public Book(String title, Author author) {
         this.title = title;
         this.author = author;
         System.out.println("Argumented constructor is executed");
@@ -24,11 +24,11 @@ public class Book {
         this.title = title;
     }
 
-    public String getAuthor() {
+    public Author getAuthor() {
         return author;
     }
 
-    public void setAuthor(String author) {
+    public void setAuthor(Author author) {
         this.author = author;
     }
 

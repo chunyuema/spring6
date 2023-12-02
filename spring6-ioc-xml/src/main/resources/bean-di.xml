@@ -9,13 +9,13 @@
     <!-- Using setters for dependency injection -->
     <bean id="java-textbook" class="com.chunyue.spring6.iocxml.dependencyinjection.Book">
         <property name="title" value="java"></property>
-        <property name="author" value="java-author"></property>
+        <property name="author" ref="author"></property>
     </bean>
 
     <!-- Using constructor (with arguments) for dependency injection -->
     <bean id="cpp-textbook" class="com.chunyue.spring6.iocxml.dependencyinjection.Book">
         <constructor-arg name="title" value="cpp"></constructor-arg>
-        <constructor-arg name="author" value="cpp-author"></constructor-arg>
+        <constructor-arg name="author" ref="author"></constructor-arg>
     </bean>
 
     <!-- Using null value -->
@@ -27,7 +27,12 @@
     <!-- Using xml entity -->
     <bean id="werid-name-book" class="com.chunyue.spring6.iocxml.dependencyinjection.Book">
         <property name="title" value="&lt;&gt;"/>
-        <property name="author" value="chunyue"></property>
+        <property name="author" ref="author"></property>
+    </bean>
+
+    <bean id="author" class="com.chunyue.spring6.iocxml.dependencyinjection.Author">
+        <property name="name" value="chunyue"></property>
+        <property name="age" value="25"></property>
     </bean>
 
 </beans>

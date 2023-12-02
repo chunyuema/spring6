@@ -7,14 +7,18 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class TestBook {
     @Test
     public void nativeMethodOfConstruction() {
+        Author author = new Author();
+        author.setName("Chunyue");
+        author.setAge(26);
+
         // Through setters
         Book book1 = new Book();
         book1.setTitle("book1");
-        book1.setAuthor("author1");
+        book1.setAuthor(author);
         System.out.println(book1);
 
         // Through constructors
-        Book book2 = new Book("book2", "author2");
+        Book book2 = new Book("book2", author);
         System.out.println(book2);
     }
 
