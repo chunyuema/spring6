@@ -1,0 +1,15 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<beans xmlns = "http://www.springframework.org/schema/beans"
+       xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation = "http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <!-- Using setters for dependency injection -->
+    <bean id="java-textbook" class="com.chunyue.spring6.iocxml.dependencyinjection.Book">
+        <property name="title" value="java"></property>
+        <property name="author" value="java-author"></property>
+    </bean>
+
+</beans>

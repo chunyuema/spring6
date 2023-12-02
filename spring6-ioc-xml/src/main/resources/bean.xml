@@ -12,4 +12,5 @@
     <bean id="personDaoImpl1" class="com.chunyue.spring6.iocxml.exampleinterface.PersonDaoImpl1"></bean>
     <bean id="personDaoImpl2" class="com.chunyue.spring6.iocxml.exampleinterface.PersonDaoImpl2"></bean>
 
+
 </beans>
