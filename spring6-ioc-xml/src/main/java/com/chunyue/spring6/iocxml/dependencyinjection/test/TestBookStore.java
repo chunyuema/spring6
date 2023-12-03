@@ -21,4 +21,11 @@ public class TestBookStore {
         System.out.println(bookStore);
     }
 
+    @Test
+    public void testReferenceInjectionOfCollection() {
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("bean-di-ref.xml");
+        BookStore bookStore = applicationContext.getBean("cs-bookstore", BookStore.class);
+        System.out.println(bookStore);
+    }
+
 }
