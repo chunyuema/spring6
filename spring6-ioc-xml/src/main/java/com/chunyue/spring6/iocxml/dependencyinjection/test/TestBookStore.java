@@ -9,8 +9,15 @@ public class TestBookStore {
 
     @Test
     public void testDummyArrayInjection() {
-        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("bean-diarray.xml");
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("bean-di-collection.xml");
         BookStore bookStore = applicationContext.getBean("bookstore", BookStore.class);
+        System.out.println(bookStore);
+    }
+
+    @Test
+    public void testBookListInjection() {
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("bean-di-collection.xml");
+        BookStore bookStore = applicationContext.getBean("cs-bookstore", BookStore.class);
         System.out.println(bookStore);
     }
 }

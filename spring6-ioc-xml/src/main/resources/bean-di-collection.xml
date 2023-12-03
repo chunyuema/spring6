@@ -1,0 +1,48 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<beans xmlns = "http://www.springframework.org/schema/beans"
+       xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation = "http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Inject arrays -->
+    <bean id ="bookstore" class="com.chunyue.spring6.iocxml.dependencyinjection.BookStore">
+        <property name="dummies">
+            <array>
+                <value>dummy1</value>
+                <value>dummy2</value>
+                <value>dummy3</value>
+            </array>
+        </property>
+    </bean>
+
+    <!-- Inject list -->
+    <bean id ="cs-bookstore" class="com.chunyue.spring6.iocxml.dependencyinjection.BookStore">
+        <property name="books">
+            <list>
+                <ref bean="java-textbook"></ref>
+                <ref bean="cpp-textbook"></ref>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="author" class="com.chunyue.spring6.iocxml.dependencyinjection.Author">
+        <property name="name" value="chunyue"></property>
+        <property name="age" value="25"></property>
+    </bean>
+
+    <!-- Using setters for dependency injection -->
+    <bean id="java-textbook" class="com.chunyue.spring6.iocxml.dependencyinjection.Book">
+        <property name="title" value="java"></property>
+        <!-- Referencing external bean -->
+        <property name="author" ref="author"></property>
+    </bean>
+
+    <!-- Using setters for dependency injection -->
+    <bean id="cpp-textbook" class="com.chunyue.spring6.iocxml.dependencyinjection.Book">
+        <property name="title" value="cpp"></property>
+        <!-- Referencing external bean -->
+        <property name="author" ref="author"></property>
+    </bean>
+
+</beans>
