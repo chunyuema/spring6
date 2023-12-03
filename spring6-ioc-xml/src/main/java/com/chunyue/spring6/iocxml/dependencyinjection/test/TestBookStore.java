@@ -15,9 +15,10 @@ public class TestBookStore {
     }
 
     @Test
-    public void testBookListInjection() {
+    public void testBookstoreListAndMapInjection() {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("bean-di-collection.xml");
         BookStore bookStore = applicationContext.getBean("cs-bookstore", BookStore.class);
         System.out.println(bookStore);
     }
+
 }

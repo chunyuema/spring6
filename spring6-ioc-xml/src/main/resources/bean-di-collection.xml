@@ -24,6 +24,18 @@
                 <ref bean="cpp-textbook"></ref>
             </list>
         </property>
+        <property name="publisherBookMap">
+            <map>
+                <entry>
+                    <key><ref bean="java-publisher"></ref></key>
+                    <ref bean="java-textbook"></ref>
+                </entry>
+                <entry>
+                    <key><ref bean="cpp-publisher"></ref></key>
+                    <ref bean="cpp-textbook"></ref>
+                </entry>
+            </map>
+        </property>
     </bean>
 
     <bean id="author" class="com.chunyue.spring6.iocxml.dependencyinjection.Author">
@@ -43,6 +55,14 @@
         <property name="title" value="cpp"></property>
         <!-- Referencing external bean -->
         <property name="author" ref="author"></property>
+    </bean>
+
+    <bean id="java-publisher" class="com.chunyue.spring6.iocxml.dependencyinjection.Publisher">
+        <property name="name" value="java-publisher"></property>
+    </bean>
+
+    <bean id="cpp-publisher" class="com.chunyue.spring6.iocxml.dependencyinjection.Publisher">
+        <property name="name" value="cpp-publisher"></property>
     </bean>
 
 </beans>
