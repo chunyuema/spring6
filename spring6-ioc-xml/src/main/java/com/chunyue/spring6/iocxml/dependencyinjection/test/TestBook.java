@@ -1,5 +1,7 @@
-package com.chunyue.spring6.iocxml.dependencyinjection;
+package com.chunyue.spring6.iocxml.dependencyinjection.test;
 
+import com.chunyue.spring6.iocxml.dependencyinjection.Author;
+import com.chunyue.spring6.iocxml.dependencyinjection.Book;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
