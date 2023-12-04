@@ -11,4 +11,8 @@
         <property name="name" value="Ray"></property>
     </bean>
 
+    <bean id="dogPostProcessor" class="com.chunyue.spring6.iocxml.beanlifecycle.MyBeanPostProcessor">
+
+    </bean>
+
 </beans>
