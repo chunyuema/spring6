@@ -7,3 +7,8 @@
 5. Bean post-processor
 6. Bean being used
 7. Bean destruction
+
+
+### Factory Bean
+The getObject() method from FactoryBean determines the kind of objects that will be created.
+- This is usually used to integration third party tools such as MyBatis
