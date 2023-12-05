@@ -12,3 +12,5 @@
 ### Factory Bean
 The getObject() method from FactoryBean determines the kind of objects that will be created.
 - This is usually used to integration third party tools such as MyBatis
+
+### Auto 
