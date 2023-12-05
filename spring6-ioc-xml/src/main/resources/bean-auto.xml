@@ -5,6 +5,7 @@
        xsi:schemaLocation = "http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <!-- Autowire by type -->
     <bean id="userController"
           class="com.chunyue.spring6.iocxml.autowire.controller.UserController"
           autowire="byType"></bean>
@@ -15,4 +16,17 @@
 
     <bean id="userDao"
           class="com.chunyue.spring6.iocxml.autowire.dao.UserDaoImpl"></bean>
+
+    <!-- Autowire by name: this is more restrictive, because the name must match with the property exactly. -->
+<!--    <bean id="userController"-->
+<!--          class="com.chunyue.spring6.iocxml.autowire.controller.UserController"-->
+<!--          autowire="byName"></bean>-->
+
+<!--    <bean id="userService"-->
+<!--          class="com.chunyue.spring6.iocxml.autowire.service.UserServiceImpl"-->
+<!--          autowire="byName"></bean>-->
+
+<!--    <bean id="userDao"-->
+<!--          class="com.chunyue.spring6.iocxml.autowire.dao.UserDaoImpl"></bean>-->
+
 </beans>
