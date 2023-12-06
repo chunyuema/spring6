@@ -20,10 +20,17 @@ public class EmployeeController {
 //    }
 
     // CASE 3: inject by constructor
+//    private EmployeeService employeeService;
+//
+//    @Autowired
+//    public EmployeeController(EmployeeService employeeService) {
+//        this.employeeService = employeeService;
+//    }
+
+    // CASE 4: inject by constructor argument
     private EmployeeService employeeService;
 
-    @Autowired
-    public EmployeeController(EmployeeService employeeService) {
+    public EmployeeController(@Autowired EmployeeService employeeService) {
         this.employeeService = employeeService;
     }
 
