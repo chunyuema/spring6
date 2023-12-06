@@ -7,9 +7,18 @@ import org.springframework.stereotype.Controller;
 @Controller
 public class EmployeeController {
 
-    // inject by property: use type to look for object and perform injection
-    @Autowired
+    // CASE 1: inject by property - use type to look for object and perform injection
+
+    // @Autowired
+    // private EmployeeService employeeService;
+
+    // CASE 2: inject by setter
     private EmployeeService employeeService;
+
+    @Autowired
+    public void setEmployeeService(EmployeeService employeeService) {
+        this.employeeService = employeeService;
+    }
 
     public void addEmployee() {
         System.out.println("EmployeeController: calling employee service to add employee...");
