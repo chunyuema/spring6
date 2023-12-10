@@ -1,13 +1,16 @@
 package com.chunyue.bean;
 
+import com.chunyue.annotation.MyAutowire;
 import com.chunyue.annotation.MyComponent;
 
 import java.io.File;
+import java.lang.reflect.Field;
 import java.net.URL;
 import java.net.URLDecoder;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 public class MyAnnotationApplicationContext implements MyApplicationContext{
 
@@ -46,9 +49,11 @@ public class MyAnnotationApplicationContext implements MyApplicationContext{
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+
+        dependencyInjection();
     }
 
-    private void  loadBean(File file) throws Exception {
+    private void loadBean(File file) throws Exception {
         System.out.println("Loading file: " + file.getAbsolutePath());
         // Check if the file is a directory
         if (file.isDirectory()) {
@@ -102,6 +107,30 @@ public class MyAnnotationApplicationContext implements MyApplicationContext{
             }
 
             System.out.println("IOC container: " + myIocContainer);
+        }
+    }
+
+    private void dependencyInjection() {
+        // Iterate through the beans in the IocContainer to get all objects
+        Set<Map.Entry<Class, Object>> entries = myIocContainer.entrySet();
+        for (Map.Entry<Class, Object> entry : entries) {
+            // For every object, get the properties of them
+            Object object = entry.getValue();
+            Class<?> clazz = object.getClass();
+            Field[] fields = clazz.getDeclaredFields();
+
+            // For every property, check if @MyAutowire is annotated and inject dependency
+            for (Field field : fields) {
+                MyAutowire myAutowire =  field.getAnnotation(MyAutowire.class);
+                if (myAutowire != null) {
+                    field.setAccessible(true);
+                    try {
+                        field.set(object, myIocContainer.get(field.getType()));
+                    } catch (Exception e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+            }
         }
     }
 }
