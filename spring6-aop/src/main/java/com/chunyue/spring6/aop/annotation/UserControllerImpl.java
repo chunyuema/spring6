@@ -15,4 +15,10 @@ public class UserControllerImpl implements UserController {
         System.out.println("Getting user from the database");
         return "200 OK";
     }
+
+    @Override
+    public Exception getUserWithException() {
+        System.out.println("Getting user from the database");
+        return new Exception("Resource not found");
+    }
 }

@@ -5,4 +5,6 @@ public interface UserController {
     public String addUser();
 
     public String getUser();
+
+    public Exception getUserWithException();
 }

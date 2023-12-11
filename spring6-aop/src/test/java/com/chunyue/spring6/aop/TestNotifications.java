@@ -13,4 +13,11 @@ public class TestNotifications {
         userController.getUser();
         userController.addUser();
     }
+
+    @Test
+    public void testNotificationsForThrowingExceptions() {
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("bean.xml");
+        UserController userController = applicationContext.getBean(UserController.class);
+        userController.getUserWithException();
+    }
 }

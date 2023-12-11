@@ -1,10 +1,7 @@
 package com.chunyue.spring6.aop.annotation;
 
 import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.annotation.After;
-import org.aspectj.lang.annotation.AfterReturning;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -27,6 +24,12 @@ public class LogAspect {
                     returning = "result")
     public void afterReturning(JoinPoint joinPoint, Object result) {
         System.out.println("Executed " + joinPoint.getSignature().getName() + " with status code: " + result);
+    }
+
+    @AfterThrowing(value = "execution(* com.chunyue.spring6.aop.annotation.UserControllerImpl.*(..))",
+                   throwing = "exception")
+    public void afterThrowing(JoinPoint joinPoint, Throwable exception) {
+        System.out.println("Exception encountered in " + joinPoint.getSignature().getName() + " with " + exception.getMessage());
     }
 
 }
