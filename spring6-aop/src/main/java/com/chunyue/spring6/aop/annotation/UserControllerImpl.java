@@ -5,12 +5,14 @@ import org.springframework.stereotype.Component;
 @Component
 public class UserControllerImpl implements UserController {
     @Override
-    public void addUser() {
+    public String addUser() {
         System.out.println("Adding user to the database");
+        return "200 OK";
     }
 
     @Override
-    public void getUser() {
+    public String getUser() {
         System.out.println("Getting user from the database");
+        return "200 OK";
     }
 }

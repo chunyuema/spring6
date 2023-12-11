@@ -7,7 +7,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class TestNotifications {
     @Test
-    public void testBeforeNotification() {
+    public void testNotification() {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("bean.xml");
         UserController userController = applicationContext.getBean(UserController.class);
         userController.getUser();

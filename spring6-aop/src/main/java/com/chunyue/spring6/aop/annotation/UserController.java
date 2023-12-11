@@ -2,7 +2,7 @@ package com.chunyue.spring6.aop.annotation;
 
 public interface UserController {
 
-    public void addUser();
+    public String addUser();
 
-    public void getUser();
+    public String getUser();
 }
