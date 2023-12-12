@@ -12,7 +12,7 @@
        http://www.springframework.org/schema/aop/spring-aop.xsd">
 
     <!-- Turn on scanning component for package -->
-    <context:component-scan base-package="com.chunyue.spring6.aop"></context:component-scan>
+    <context:component-scan base-package="com.chunyue.spring6.aop.annotation"></context:component-scan>
 
     <!-- Turn on the AOP to generate proxy through AspectJ -->
     <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
