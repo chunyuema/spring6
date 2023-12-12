@@ -11,14 +11,17 @@ import java.util.Arrays;
 @Aspect
 public class LogAspect {
 
+    @Pointcut(value = "execution(* com.chunyue.spring6.aop.annotation.UserControllerImpl.*(..))")
+    public void pointCut() {}
+
     // Type of notification: Before, AfterReturning, AfterThrowing, After, Around
-    @Before(value = "execution(* com.chunyue.spring6.aop.annotation.UserControllerImpl.*(..))") // Set where
+    @Before(value = "pointCut()") // Set where
     // to cut in and when
     public void authentication() {
         System.out.println("Before any operation, doing necessary authentication!");
     }
 
-    @After(value = "execution(* com.chunyue.spring6.aop.annotation.UserControllerImpl.*(..))")
+    @After(value = "com.chunyue.spring6.aop.annotation.LogAspect.pointCut()")
     public void afterMethod(JoinPoint joinPoint) {
         System.out.println("Finished CRUD operation of user: " + joinPoint.getSignature().getName());
     }
