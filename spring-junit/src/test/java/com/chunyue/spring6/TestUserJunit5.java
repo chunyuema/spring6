@@ -1,6 +1,6 @@
 package com.chunyue.spring6;
 
-import com.chunyue.spring6.junit5.User;
+import com.chunyue.spring6.junit.User;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;

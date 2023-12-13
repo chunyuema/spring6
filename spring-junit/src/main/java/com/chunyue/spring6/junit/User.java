@@ -1,4 +1,4 @@
-package com.chunyue.spring6.junit5;
+package com.chunyue.spring6.junit;
 
 import org.springframework.stereotype.Component;
 
