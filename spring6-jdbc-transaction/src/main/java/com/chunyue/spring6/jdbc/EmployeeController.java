@@ -17,4 +17,16 @@ public class EmployeeController {
         System.out.println(rows + " rows affected");
     }
 
+    public void updateEmployee() {
+        String sql = "UPDATE employee SET NAME=? WHERE ID=?";
+        int rows = jdbcTemplate.update(sql, "bobby", 1);
+        System.out.println(rows + " rows affected");
+    }
+
+    public void deleteEmployee() {
+        String sql = "DELETE FROM employee WHERE ID=?";
+        int rows = jdbcTemplate.update(sql, 1);
+        System.out.println(rows + " rows affected");
+    }
+
 }
