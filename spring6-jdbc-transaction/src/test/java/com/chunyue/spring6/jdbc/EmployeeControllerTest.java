@@ -26,4 +26,12 @@ public class EmployeeControllerTest {
         EmployeeController employeeController = applicationContext.getBean(EmployeeController.class);
         employeeController.deleteEmployee();
     }
+
+    @Test
+    public void testGetEmployee() {
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("bean.xml");
+        EmployeeController employeeController = applicationContext.getBean(EmployeeController.class);
+        employeeController.getEmployee(2);
+        employeeController.getEmployeeEasier(3);
+    }
 }

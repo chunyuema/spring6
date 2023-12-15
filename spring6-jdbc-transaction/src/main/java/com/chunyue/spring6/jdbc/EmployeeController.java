@@ -2,8 +2,9 @@ package com.chunyue.spring6.jdbc;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Component;
 
 @Component
 public class EmployeeController {
@@ -27,6 +28,27 @@ public class EmployeeController {
         String sql = "DELETE FROM employee WHERE ID=?";
         int rows = jdbcTemplate.update(sql, 1);
         System.out.println(rows + " rows affected");
+    }
+
+    public void getEmployee(Integer id) {
+        String sql = "SELECT * FROM employee WHERE ID=?";
+        Employee result = jdbcTemplate.queryForObject(sql,
+                (rs,rowNum) -> {
+                    Employee employee = new Employee();
+                    employee.setName(rs.getString("name"));
+                    employee.setAge(rs.getInt("age"));
+                    employee.setSex(rs.getString("name"));
+                    return employee;
+                }, id);
+        System.out.println(result);
+    }
+
+    public void getEmployeeEasier(Integer id) {
+        String sql = "SELECT * FROM employee WHERE ID=?";
+        Employee result = jdbcTemplate.queryForObject(sql,
+                new BeanPropertyRowMapper<>(Employee.class),
+                id);
+        System.out.println(result);
     }
 
 }
