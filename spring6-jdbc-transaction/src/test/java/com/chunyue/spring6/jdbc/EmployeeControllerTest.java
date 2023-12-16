@@ -34,4 +34,18 @@ public class EmployeeControllerTest {
         employeeController.getEmployee(2);
         employeeController.getEmployeeEasier(3);
     }
+
+    @Test
+    public void testGetAllEmployees() {
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("bean.xml");
+        EmployeeController employeeController = applicationContext.getBean(EmployeeController.class);
+        employeeController.getAllEmployees();
+    }
+
+    @Test
+    public void testGetSingleValue() {
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("bean.xml");
+        EmployeeController employeeController = applicationContext.getBean(EmployeeController.class);
+        employeeController.getSingleValue();
+    }
 }

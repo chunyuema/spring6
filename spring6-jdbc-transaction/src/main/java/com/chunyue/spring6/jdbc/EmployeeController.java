@@ -6,6 +6,8 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 public class EmployeeController {
 
@@ -49,6 +51,19 @@ public class EmployeeController {
                 new BeanPropertyRowMapper<>(Employee.class),
                 id);
         System.out.println(result);
+    }
+
+    public void getAllEmployees() {
+        String sql = "SELECT * FROM employee";
+        List<Employee> employees = jdbcTemplate.query(sql,
+                new BeanPropertyRowMapper<>(Employee.class));
+        System.out.println(employees);
+    }
+
+    public void getSingleValue() {
+        String sql = "SELECT count(*) FROM employee";
+        Integer count = jdbcTemplate.queryForObject(sql, Integer.class);
+        System.out.println("Total number of employee: " + count);
     }
 
 }
