@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.concurrent.TimeUnit;
+
 @Service
 public class BookServiceImpl implements BookService {
 
@@ -22,5 +24,26 @@ public class BookServiceImpl implements BookService {
 
         // update user balance
         bookDao.updateUserBalannce(userId, bookPrice);
+    }
+
+    @Transactional(readOnly = true)
+    @Override
+    public void readOnlyDemo(Integer bookId) {
+        try {
+            bookDao.decrementStock(bookId);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    @Transactional(timeout = 3)
+    @Override
+    public void timeOutDemo(Integer bookId) {
+        try {
+            TimeUnit.SECONDS.sleep(5);
+            bookDao.decrementStock(bookId);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 }
