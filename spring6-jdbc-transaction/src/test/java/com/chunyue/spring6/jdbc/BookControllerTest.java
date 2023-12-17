@@ -1,11 +1,11 @@
 package com.chunyue.spring6.jdbc;
 
-import com.chunyue.spring6.tx.controller.BookController;
+import com.chunyue.spring6.xmltx.controller.BookController;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 
-@SpringJUnitConfig(locations = "classpath:bean.xml")
+@SpringJUnitConfig(locations = "classpath:bean-xml.xml")
 public class BookControllerTest {
 
     @Autowired
@@ -13,7 +13,6 @@ public class BookControllerTest {
 
     @Test
     public void testBuyBook() {
-        Integer[] bookIds = {1, 2};
-        bookController.checkOutBooks(bookIds, 1);
+        bookController.purchaseBook(1, 1);
     }
 }
