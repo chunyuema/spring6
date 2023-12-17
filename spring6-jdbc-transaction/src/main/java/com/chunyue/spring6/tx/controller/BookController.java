@@ -1,6 +1,6 @@
 package com.chunyue.spring6.tx.controller;
 
-import com.chunyue.spring6.tx.service.BookService;
+import com.chunyue.spring6.tx.service.CheckoutService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
@@ -8,10 +8,11 @@ import org.springframework.stereotype.Controller;
 public class BookController {
 
     @Autowired
-    private BookService bookService;
+    private CheckoutService checkoutService;
 
-
-    public void purchaseBook(Integer bookId, Integer userId) {
-        bookService.purchaseBook(bookId, userId);
+    public void checkOutBooks(Integer[] bookIds, Integer userId) {
+        System.out.println("Beginning checking out books");
+        checkoutService.checkout(bookIds, userId);
+        System.out.println("Finished checking out books ");
     }
 }
