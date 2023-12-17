@@ -14,7 +14,10 @@ public class BookServiceImpl implements BookService {
     @Autowired
     private BookDao bookDao;
 
+    // -> all books purchases will have to be under the same transaction
     // @Transactional(propagation = Propagation.REQUIRED)
+
+    // -> each book purchase is under its own transaction
     @Transactional(propagation = Propagation.REQUIRES_NEW)
     @Override
     public void purchaseBook(Integer bookId, Integer userId) {
